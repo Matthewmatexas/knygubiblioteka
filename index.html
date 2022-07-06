@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="favicon.ico">
+    <title>Knygų biblioteka - Kasparavičių šeima</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body id="body" onload="loadFunction()">
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        #body{
+            padding: 0;
+            padding-bottom: 55px;
+            transition: 0.3s;
+            margin: 0;
+        }
+        #screen{
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            z-index: 100;
+            font-size: 20px;
+            transition: 0.5s;
+            text-align: center;
+        }
+        #screen2{
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            z-index: 90;
+            font-size: 20px;
+            transition: 0.5s;
+            text-align: center;
+        }
+        #screen3{
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            z-index: 85;
+            font-size: 20px;
+            transition: 0.5s;
+            text-align: center;
+        }
+        #screen4{
+            width: 95%;
+            height: 96%;
+            background-color: white;
+            position: fixed;
+            top: 2%;
+            right: -100%;
+            bottom: 2%;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            z-index: 80;
+            font-size: 20px;
+            transition: 0.3s;
+            text-align: center;
+            border: 2px solid lightskyblue;
+            box-shadow: 0 0 15px lightskyblue;
+            padding: 15px;
+        }
+        .loader {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 6rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  .loader:before,
+  .loader:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    animation: pulsOut 1.8s ease-in-out infinite;
+    filter: drop-shadow(0 0 1rem lightskyblue);
+  }
+  .loader:before {
+    width: 100%;
+    padding-bottom: 100%;
+    box-shadow: inset 0 0 0 1rem lightskyblue;
+    animation-name: pulsIn;
+  }
+  .loader:after {
+    width: calc(100% - 2rem);
+    padding-bottom: calc(100% - 2rem);
+    box-shadow: 0 0 0 0 lightskyblue;
+  }
+
+  @keyframes pulsIn {
+    0% {
+      box-shadow: inset 0 0 0 1rem lightskyblue;
+      opacity: 1;
+    }
+    50%, 100% {
+      box-shadow: inset 0 0 0 0 lightskyblue;
+      opacity: 0;
+    }
+  }
+
+  @keyframes pulsOut {
+    0%, 50% {
+      box-shadow: 0 0 0 0 lightskyblue;
+      opacity: 0;
+    }
+    100% {
+      box-shadow: 0 0 0 1rem lightskyblue;
+      opacity: 1;
+    }
+  }
+        #myInput{
+            width: 100%;
+            border: 2px solid lightskyblue;
+            border-left-color: transparent;
+            border-bottom-color: transparent;
+            border-right-color: transparent;
+            height: 40px;
+            padding: 15px;
+            padding-right: 85px;
+            font-size: 13px;
+            border-radius: 0 0 15px 15px;
+        }
+        #myInput:focus{
+            outline: none;
+        }
+        #search{
+            width: 95%;
+            right: -100%;
+            text-align: center;
+            border: 2px solid lightskyblue;
+            border-radius: 15px;
+            position: fixed;
+            background-color: white;
+            transition: 0.3s;
+            box-shadow: 0 0 15px lightskyblue;
+            z-index: 20;
+        }
+        #user{
+            width: 100%;
+            height: 50px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border: 2px solid lightskyblue;
+            border-radius: 15px 15px 0 0;
+            border-bottom-color: transparent;
+            box-shadow: 0 0 15px lightskyblue;
+            background-color: white;
+            z-index: 50;
+            transition: 0.3s;
+        }
+        .book{
+            height: 60px;
+            border: 2px solid lightskyblue;
+            list-style-type: none;
+            color: black;
+            text-decoration: none;
+            padding: 5px;
+            position: relative;
+            transition: 0.4s;
+            overflow: hidden;
+            width: 95%;
+            margin-left: 2.5%;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+        a{
+            color: black;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        ul{
+            width: 100%;
+            padding: 0;
+            color: black;
+            text-decoration: none;
+            margin: 0;
+        }
+        @keyframes size{
+            0%{
+                transform: scale(1.0);
+            }
+            8%{
+                transform: scale(1.1);
+            }
+            16%{
+                transform: scale(1.0);
+            }
+            24%{
+                transform: scale(1.1);
+            }
+            32%{
+                transform: scale(1.0);
+            }
+            100%{
+                transform: scale(1.0);
+            }
+        }
+        @media only screen and (max-width: 800px) {
+            #screen3 {
+                top: -120%;
+            }
+        }
+    </style>
+    </head>
+
+    <div id="screen">
+        <p>Kraunama Knygų biblioteka...</p>
+        <span class="loader"></span>
+    </div>
+    <div id="screen2">
+        <p>Luktelėkite, kol bus įkelti vaizdai...</p>
+        <p style="position: absolute; font-size: 13px; color: red; margin-top: -200px; animation: size 1.5s linear infinite;" id="wifi"><i class="fa fa-wifi"></i> Lėtas interneto greitis</p>
+        <span class="loader"></span>
+    </div>
+
+    <div id="screen3">
+        <p>Įrenginio ekranas per didelis.</p>
+        <p style="font-size: 15px;">Prašome aplankyti Knygų biblioteką mažesniame ekrane.</p>
+    </div> 
+    
+    <div id="screen4">
+        <button style="position: absolute; top: 3px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s;" onclick="helpClose()">Uždaryti</button>
+        <p>Stulpelių ir eilių skaičiavimas:</p>
+        <p style="font-size: 15px;">Stulpeliai skaičiuojami horizontaliai iš kairės į dešinę; eilės skaičiuojamos vertikaliai iš viršaus į apačią.</p>
+        <img src="fonas.jpg" alt="" style="height: 60%; border-radius: 15px; border: 2px solid lightskyblue;">
+    </div> 
+    <img src="search.png" alt="" id="btn" style="background-color: white; width: 50px; transition: 0.3s; border-radius: 100%; border: 2px solid lightskyblue; padding: 5px; position: fixed; top: 10px; right: 10px; box-shadow: 0 0 15px lightskyblue; z-index: 15;" onclick="searchOpen()">
+    <img src="bookshelf.jpg" alt="" id="btn2" style="background-color: white; width: 50px; transition: 0.3s; border-radius: 100%; border: 2px solid lightskyblue; padding: 5px; position: fixed; bottom: 60px; right: 10px; z-index: 55; box-shadow: 0 0 15px lightskyblue; " onclick="helpOpen()">
+    <div id="search">
+        <div style="display: flex; justify-content: center; align-items: center;"><img src="search.png" alt="" style="width: 30px;"><p style="font-size: 13px; text-align: left; padding-left: 5px;">Ieškokite knygų pagal pavadinimą/autorių:</p></div>
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="pvz., Raudonkepuraitė..." title="Type in a name" maxlength="50">
+        <button style="position: absolute; top: 50px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s;" onclick="searchClose()">Uždaryti</button>
+    </div>
+    <div id="user" onclick="info()"><div style="width: 100%; display: flex; justify-content: center; align-items: center; margin-top: -5px;"><img src="user.jpg" alt="" style="width: 30px;"><p>Kasparavičių šeima</p></div><div style="width: 100%; position: absolute; left: 0; right: 0; top: 49px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 5px; margin-left: 5px;">Viso knygų: ---</p><p style="margin-top: -15px; margin-left: 5px;">Naudotojas nuo: 05/07/2022</p><p style="position: absolute; top: 40px; right: 5px; font-size: 10px;" id="5">Uždaroma po 5s</p><p style="position: absolute; top: 40px; right: 5px; display: none; font-size: 10px;" id="4">Uždaroma po 4s</p><p style="position: absolute; top: 40px; right: 5px; display: none; font-size: 10px;" id="3">Uždaroma po 3s</p><p style="position: absolute; top: 40px; right: 5px; display: none; font-size: 10px;" id="2">Uždaroma po 2s</p><p style="position: absolute; top: 40px; right: 5px; display: none; font-size: 10px;" id="1">Uždaroma po 1s</p><p style="position: absolute; top: 40px; right: 5px; display: none; font-size: 10px;" id="close">Uždaroma...</p></div>
+
+    <div style="width: 95%; border-radius: 15px; height: 50px; font-size: 13px; position: fixed; transition: 0.3s; top: -100px; left: 2.5%; right: 2.5%; background-color: white; text-align: center; z-index: 50; border: 2px solid lightskyblue; box-shadow: 0 0 15px lightskyblue;" id="sortby"><p>Knygos yra išrikiuotos nuo A iki Z (pagal abėcėlę).</p></div>
+    <h1 style="margin-top: 10px; margin-left: 10px;">Knygų biblioteka</h1>
+    <p style="margin-top: -10px; margin-left: 10px;">Rikiavimas: A - Z <span style="color: slategrey; border-radius: 100%; margin-left: 5px; border: 2px solid slategrey; padding-left: 7px; padding-right: 7px;" onclick="sort()">?</span></p>
+
+    <ul id="myUL">
+        <li class="book" id="book12" style="border-radius: 0;"><a href="#" onclick="book12Open()"><span style="font-weight: 800; font-size: 15px;">Atradimai ir išradimai, kurie pakeitė pasaulį</span> <br> Lietuvos Rytas</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau12" onclick="book12Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau12" onclick="book12Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Enciklopedijos. Žinynai</p></div><img src="atradimai-ir-isradimai-kurie-pakeite-pasauli.jpg" alt="Atradimai ir išradimai, kurie pakeitė pasaul" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book11" style="border-radius: 0;"><a href="#" onclick="book11Open()"><span style="font-weight: 800; font-size: 15px;">Buvom Esam Būsim</span> <br> Lietuvos Rytas</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau11" onclick="book11Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau11" onclick="book11Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Istorija</p></div><img src="buvom-esam-busim.jpg" alt="Buvom Esam Būsim" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book9" style="border-radius: 0;"><a href="#" onclick="book9Open()"><span style="font-weight: 800; font-size: 15px;">Daina Lietuvai</span> <br> Antanas Sutkus</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau9" onclick="book9Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau9" onclick="book9Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Biografija,  atsiminimai</p></div><img src="daina-lietuvai.jpg" alt="Daina Lietuvai" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book14" style="border-radius: 0;"><a href="#" onclick="book14Open()"><span style="font-weight: 800; font-size: 15px;">Didieji pasaulio stebuklai</span> <br> Reader's Digest</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau14" onclick="book14Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau14" onclick="book14Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Istorija</p></div><img src="didieji-pasaulio-stebuklai.jpg" alt="Didieji pasaulio stebuklai" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book4" style="border-radius: 0;"><a href="#" onclick="book4Open()"><span style="font-weight: 800; font-size: 15px;">Didysis sapnininkas</span> <br> Juozas Banevičius</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau4" onclick="book4Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau4" onclick="book4Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Ezoterika. Magija. Mistika</p></div><img src="didysis-sapnininkas.jpg" alt="Didysis Sapnininkas" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book3" style="border-radius: 0;"><a href="#" onclick="book3Open()"><span style="font-weight: 800; font-size: 15px;">Gyvenimas po mirties ir pasaulis anapus</span> <br> Jenny Randelis ir Peter Hough</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau3" onclick="book3Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau3" onclick="book3Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Religija ir teologija</p></div><img src="gyvenimas-po-mirties-ir-pasaulis-anapus.jpg" alt="Gyvenimas po mirties ir pasaulis anapus" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book17" style="border-radius: 0;"><a href="#" onclick="book17Open()"><span style="font-weight: 800; font-size: 15px;">Gyvoji gamta</span> <br> Pažinimo džiaugsmas</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau17" onclick="book17Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau17" onclick="book17Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Gamta ir mokslas</p></div><img src="gyvoji-gamta.jpg" alt="Gyvoji gamta" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book12" style="border-radius: 0;"><a href="#" onclick="book12Open()"><span style="font-weight: 800; font-size: 15px;">Lietuvos garbės kodas</span> <br> Lietuvos rytas</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau12" onclick="book12Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau12" onclick="book12Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Istorija</p></div><img src="lietuvos-garbes-kodas.jpg" alt="Lietuvos garbės kodas" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book10" style="border-radius: 0;"><a href="#" onclick="book10Open()"><span style="font-weight: 800; font-size: 15px;">Lietuvos miškuose</span> <br> <span style="color: slategrey;">Autoriaus nėra</span></a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau10" onclick="book10Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau10" onclick="book10Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Kelionės. Laivalaikis. Sportas</p></div><img src="lietuvos-miskuose.jpg" alt="Lietuvos miškuose" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book7" style="border-radius: 0;"><a href="#" onclick="book7Open()"><span style="font-weight: 800; font-size: 15px;">Pajusk Lietuvą</span> <br> Lietuvos Rytas</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau7" onclick="book7Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau7" onclick="book7Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Kelionės. Laisvalaikis. Sportas</p></div><img src="pajusk-lietuva.jpg" alt="Pajusk Lietuvą" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book5" style="border-radius: 0;"><a href="#" onclick="book5Open()"><span style="font-weight: 800; font-size: 15px;">Pasaulio garsenybės</span> <br> Oxford University Press</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau5" onclick="book5Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau5" onclick="book5Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Enciklopedijos. Žinynai</p></div><img src="pasaulio-garsenybes.jpg" alt="Pasaulio garsenybės" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book15" style="border-radius: 0;"><a href="#" onclick="book15Open()"><span style="font-weight: 800; font-size: 15px;">Pasaulio geografija</span> <br> <span style="color: slategrey;">Autoriaus nėra</span></a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau15" onclick="book15Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau15" onclick="book15Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Enciklopedijos. Žinynai</p></div><img src="pasaulio-geografija.jpg" alt="Pasaulio geografija" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book2" style="border-radius: 0"><a href="#" onclick="book2Open()"><span style="font-weight: 800; font-size: 15px;">Sapnai</span> <br> <span style="color: slategrey;">Autoriaus nėra</span></a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau2" onclick="book2Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau2" onclick="book2Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Ezoterika. Magija. Mistika</p></div><img src="sapnai.jpg" alt="Sapnai" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book1" style="border-radius: 0;"><a href="#" onclick="book1Open()"><span style="font-weight: 800; font-size: 15px;">Senovės pasaulio stebuklai</span> <br> Chris Scarre</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau1" onclick="book1Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau1" onclick="book1Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Istorija</p></div><img src="senoves-pasaulio-stebuklai.jpg" alt="Senovės pasaulio stebuklai" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book6" style="border-radius: 0;"><a href="#" onclick="book6Open()"><span style="font-weight: 800; font-size: 15px;">Šalis ta Lietuva...</span> <br> Lietuvos Rytas</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau6" onclick="book6Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau6" onclick="book6Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Istorija</p></div><img src="salis-ta-lietuva.jpg" alt="Šalis ta Lietuva..." style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book8" style="border-radius: 0;"><a href="#" onclick="book8Open()"><span style="font-weight: 800; font-size: 15px;">Šventosios vietos</span> <br> James Harpur</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau8" onclick="book8Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau8" onclick="book8Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Kelionės. Laisvalaikis. Sportas</p></div><img src="sventosios-vietos.jpg" alt="Šventosios vietos" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book16" style="border-radius: 0;"><a href="#" onclick="book16Open()"><span style="font-weight: 800; font-size: 15px;">Žemė ir jos gėrybės</span> <br> Pažinimo džiaugsmas</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau16" onclick="book16Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau16" onclick="book16Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Gamta ir mokslas</p></div><img src="zeme-ir-jos-gerybes.jpg" alt="Žemė ir jos gėrybės" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+    </ul>
+
+    <p style="text-align: center; font-size: 15px;">&copy; Knygų biblioteka 2022</p>
+    <p style="font-size: 10px; text-align: center; color: slategrey; margin-top: -10px;">Sukurta <a href="https://matthewmatexas.github.io/portfolio" target="_blank" style="color: slategrey; font-size: 10px; text-decoration: underline;">Matthew</a></p>
+
+    <script>
+        setTimeout(() => {
+            document.getElementById("wifi").style.display = "none";
+        }, 4000);
+        setTimeout(() => {
+            document.getElementById("screen").style.display = "none";
+        }, 5000);
+        setTimeout(() => {
+            document.getElementById("wifi").style.display = "block";
+        }, 20000);
+        function loadFunction(){
+            setTimeout(() => {
+                document.getElementById("wifi").style.display = "none";
+            }, 4500);
+            setTimeout(() => {
+                document.getElementById("screen2").style.top = "-120%";
+            }, 5000);
+        }
+        function info(){
+            document.getElementById("user").style.height = "110px";
+            document.getElementById("btn2").style.bottom = "120px";
+            document.getElementById("body").style.paddingBottom = "115px";
+            document.getElementById("user").style.width = "95%";
+            document.getElementById("user").style.left = "2.5%";
+            document.getElementById("user").style.pointerEvents = "none";
+            setTimeout(() => {
+                document.getElementById("5").style.display = "none";
+                document.getElementById("4").style.display = "block";
+            }, 1000);
+            setTimeout(() => {
+                document.getElementById("4").style.display = "none";
+                document.getElementById("3").style.display = "block";
+            }, 2000);
+            setTimeout(() => {
+                document.getElementById("3").style.display = "none";
+                document.getElementById("2").style.display = "block";
+            }, 3000);
+            setTimeout(() => {
+                document.getElementById("2").style.display = "none";
+                document.getElementById("1").style.display = "block";
+            }, 4000);
+            setTimeout(() => {
+                document.getElementById("1").style.display = "none";
+                document.getElementById("close").style.display = "block";
+                document.getElementById("user").style.height = "50px";
+                document.getElementById("user").style.width = "100%";
+                document.getElementById("user").style.left = "0%";
+                document.getElementById("body").style.paddingBottom = "55px";
+                document.getElementById("btn2").style.bottom = "60px";
+            }, 5000);
+            setTimeout(() => {
+                document.getElementById("close").style.display = "none";
+                document.getElementById("5").style.display = "block";
+                document.getElementById("user").style.pointerEvents = "all";
+            }, 5300);
+        }
+        function searchOpen() {
+            document.getElementById("btn").style.right = "-100px";
+            setTimeout(() => {
+                document.getElementById("search").style.right = "2.5%";
+            }, 300);
+        }
+        function searchClose() {
+            document.getElementById("search").style.right = "-100%";
+            setTimeout(() => {
+                document.getElementById("btn").style.right = "10px";
+            }, 300);
+        }
+        function helpOpen() {
+            document.getElementById("btn2").style.right = "-100px";
+            setTimeout(() => {
+                document.getElementById("screen4").style.right = "2.5%";
+            }, 300);
+        }
+        function helpClose() {
+            document.getElementById("screen4").style.right = "-100%";
+            setTimeout(() => {
+                document.getElementById("btn2").style.right = "10px";
+            }, 300);
+        }
+        function sort() {
+            document.getElementById("sortby").style.top = "10px";
+            setTimeout(() => {
+                document.getElementById("sortby").style.top = "-100px";
+            }, 3000);
+        }
+        function book1Open() {
+            document.getElementById("book1").style.height = "540px";
+            document.getElementById("book1").style.width = "99%";
+            document.getElementById("book1").style.marginLeft = "0.5%";
+            document.getElementById("book1").style.borderRadius = "15px";
+            document.getElementById("daugiau1").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau1").style.opacity = "1";
+                document.getElementById("maziau1").style.zIndex = "2";
+            }, 300);
+        }
+        function book1Close() {
+            document.getElementById("book1").style.height = "60px";
+            document.getElementById("book1").style.width = "95%";
+            document.getElementById("book1").style.marginLeft = "2.5%";
+            document.getElementById("book1").style.borderRadius = "0";
+            document.getElementById("maziau1").style.opacity = "0";
+            document.getElementById("maziau1").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau1").style.opacity = "1";
+            }, 300);
+        }
+        function book2Open() {
+            document.getElementById("book2").style.height = "540px";
+            document.getElementById("book2").style.width = "99%";
+            document.getElementById("book2").style.marginLeft = "0.5%";
+            document.getElementById("book2").style.borderRadius = "15px";
+            document.getElementById("daugiau2").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau2").style.opacity = "1";
+                document.getElementById("maziau2").style.zIndex = "2";
+            }, 300);
+        }
+        function book2Close() {
+            document.getElementById("book2").style.height = "60px";
+            document.getElementById("book2").style.width = "95%";
+            document.getElementById("book2").style.marginLeft = "2.5%";
+            document.getElementById("book2").style.borderRadius = "0";
+            document.getElementById("maziau2").style.opacity = "0";
+            document.getElementById("maziau2").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau2").style.opacity = "1";
+            }, 300);
+        }
+        function book3Open() {
+            document.getElementById("book3").style.height = "540px";
+            document.getElementById("book3").style.width = "99%";
+            document.getElementById("book3").style.marginLeft = "0.5%";
+            document.getElementById("book3").style.borderRadius = "15px";
+            document.getElementById("daugiau3").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau3").style.opacity = "1";
+                document.getElementById("maziau3").style.zIndex = "2";
+            }, 300);
+        }
+        function book3Close() {
+            document.getElementById("book3").style.height = "60px";
+            document.getElementById("book3").style.width = "95%";
+            document.getElementById("book3").style.marginLeft = "2.5%";
+            document.getElementById("book3").style.borderRadius = "0";
+            document.getElementById("maziau3").style.opacity = "0";
+            document.getElementById("maziau3").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau3").style.opacity = "1";
+            }, 300);
+        }
+        function book4Open() {
+            document.getElementById("book4").style.height = "540px";
+            document.getElementById("book4").style.width = "99%";
+            document.getElementById("book4").style.marginLeft = "0.5%";
+            document.getElementById("book4").style.borderRadius = "15px";
+            document.getElementById("daugiau4").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau4").style.opacity = "1";
+                document.getElementById("maziau4").style.zIndex = "2";
+            }, 300);
+        }
+        function book4Close() {
+            document.getElementById("book4").style.height = "60px";
+            document.getElementById("book4").style.width = "95%";
+            document.getElementById("book4").style.marginLeft = "2.5%";
+            document.getElementById("book4").style.borderRadius = "0";
+            document.getElementById("maziau4").style.opacity = "0";
+            document.getElementById("maziau4").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau4").style.opacity = "1";
+            }, 300);
+        }
+        function book5Open() {
+            document.getElementById("book5").style.height = "540px";
+            document.getElementById("book5").style.width = "99%";
+            document.getElementById("book5").style.marginLeft = "0.5%";
+            document.getElementById("book5").style.borderRadius = "15px";
+            document.getElementById("daugiau5").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau5").style.opacity = "1";
+                document.getElementById("maziau5").style.zIndex = "2";
+            }, 300);
+        }
+        function book5Close() {
+            document.getElementById("book5").style.height = "60px";
+            document.getElementById("book5").style.width = "95%";
+            document.getElementById("book5").style.marginLeft = "2.5%";
+            document.getElementById("book5").style.borderRadius = "0";
+            document.getElementById("maziau5").style.opacity = "0";
+            document.getElementById("maziau5").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau5").style.opacity = "1";
+            }, 300);
+        }
+        function book6Open() {
+            document.getElementById("book6").style.height = "540px";
+            document.getElementById("book6").style.width = "99%";
+            document.getElementById("book6").style.marginLeft = "0.5%";
+            document.getElementById("book6").style.borderRadius = "15px";
+            document.getElementById("daugiau6").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau6").style.opacity = "1";
+                document.getElementById("maziau6").style.zIndex = "2";
+            }, 300);
+        }
+        function book6Close() {
+            document.getElementById("book6").style.height = "60px";
+            document.getElementById("book6").style.width = "95%";
+            document.getElementById("book6").style.marginLeft = "2.5%";
+            document.getElementById("book6").style.borderRadius = "0";
+            document.getElementById("maziau6").style.opacity = "0";
+            document.getElementById("maziau6").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau6").style.opacity = "1";
+            }, 300);
+        }
+        function book7Open() {
+            document.getElementById("book7").style.height = "540px";
+            document.getElementById("book7").style.width = "99%";
+            document.getElementById("book7").style.marginLeft = "0.5%";
+            document.getElementById("book7").style.borderRadius = "15px";
+            document.getElementById("daugiau7").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau7").style.opacity = "1";
+                document.getElementById("maziau7").style.zIndex = "2";
+            }, 300);
+        }
+        function book7Close() {
+            document.getElementById("book7").style.height = "60px";
+            document.getElementById("book7").style.width = "95%";
+            document.getElementById("book7").style.marginLeft = "2.5%";
+            document.getElementById("book7").style.borderRadius = "0";
+            document.getElementById("maziau7").style.opacity = "0";
+            document.getElementById("maziau7").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau7").style.opacity = "1";
+            }, 300);
+        }
+        function book8Open() {
+            document.getElementById("book8").style.height = "540px";
+            document.getElementById("book8").style.width = "99%";
+            document.getElementById("book8").style.marginLeft = "0.5%";
+            document.getElementById("book8").style.borderRadius = "15px";
+            document.getElementById("daugiau8").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau8").style.opacity = "1";
+                document.getElementById("maziau8").style.zIndex = "2";
+            }, 300);
+        }
+        function book8Close() {
+            document.getElementById("book8").style.height = "60px";
+            document.getElementById("book8").style.width = "95%";
+            document.getElementById("book8").style.marginLeft = "2.5%";
+            document.getElementById("book8").style.borderRadius = "0";
+            document.getElementById("maziau8").style.opacity = "0";
+            document.getElementById("maziau8").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau8").style.opacity = "1";
+            }, 300);
+        }
+        function book9Open() {
+            document.getElementById("book9").style.height = "540px";
+            document.getElementById("book9").style.width = "99%";
+            document.getElementById("book9").style.marginLeft = "0.5%";
+            document.getElementById("book9").style.borderRadius = "15px";
+            document.getElementById("daugiau9").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau9").style.opacity = "1";
+                document.getElementById("maziau9").style.zIndex = "2";
+            }, 300);
+        }
+        function book9Close() {
+            document.getElementById("book9").style.height = "60px";
+            document.getElementById("book9").style.width = "95%";
+            document.getElementById("book9").style.marginLeft = "2.5%";
+            document.getElementById("book9").style.borderRadius = "0";
+            document.getElementById("maziau9").style.opacity = "0";
+            document.getElementById("maziau9").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau9").style.opacity = "1";
+            }, 300);
+        }
+        function book10Open() {
+            document.getElementById("book10").style.height = "540px";
+            document.getElementById("book10").style.width = "99%";
+            document.getElementById("book10").style.marginLeft = "0.5%";
+            document.getElementById("book10").style.borderRadius = "15px";
+            document.getElementById("daugiau10").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau10").style.opacity = "1";
+                document.getElementById("maziau10").style.zIndex = "2";
+            }, 300);
+        }
+        function book10Close() {
+            document.getElementById("book10").style.height = "60px";
+            document.getElementById("book10").style.width = "95%";
+            document.getElementById("book10").style.marginLeft = "2.5%";
+            document.getElementById("book10").style.borderRadius = "0";
+            document.getElementById("maziau10").style.opacity = "0";
+            document.getElementById("maziau10").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau10").style.opacity = "1";
+            }, 300);
+        }
+        function book11Open() {
+            document.getElementById("book11").style.height = "540px";
+            document.getElementById("book11").style.width = "99%";
+            document.getElementById("book11").style.marginLeft = "0.5%";
+            document.getElementById("book11").style.borderRadius = "15px";
+            document.getElementById("daugiau11").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau11").style.opacity = "1";
+                document.getElementById("maziau11").style.zIndex = "2";
+            }, 300);
+        }
+        function book11Close() {
+            document.getElementById("book11").style.height = "60px";
+            document.getElementById("book11").style.width = "95%";
+            document.getElementById("book11").style.marginLeft = "2.5%";
+            document.getElementById("book11").style.borderRadius = "0";
+            document.getElementById("maziau11").style.opacity = "0";
+            document.getElementById("maziau11").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau11").style.opacity = "1";
+            }, 300);
+        }
+        function book12Open() {
+            document.getElementById("book12").style.height = "540px";
+            document.getElementById("book12").style.width = "99%";
+            document.getElementById("book12").style.marginLeft = "0.5%";
+            document.getElementById("book12").style.borderRadius = "15px";
+            document.getElementById("daugiau12").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau12").style.opacity = "1";
+                document.getElementById("maziau12").style.zIndex = "2";
+            }, 300);
+        }
+        function book12Close() {
+            document.getElementById("book12").style.height = "60px";
+            document.getElementById("book12").style.width = "95%";
+            document.getElementById("book12").style.marginLeft = "2.5%";
+            document.getElementById("book12").style.borderRadius = "0";
+            document.getElementById("maziau12").style.opacity = "0";
+            document.getElementById("maziau12").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau12").style.opacity = "1";
+            }, 300);
+        }
+        function book13Open() {
+            document.getElementById("book13").style.height = "540px";
+            document.getElementById("book13").style.width = "99%";
+            document.getElementById("book13").style.marginLeft = "0.5%";
+            document.getElementById("book13").style.borderRadius = "15px";
+            document.getElementById("daugiau13").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau13").style.opacity = "1";
+                document.getElementById("maziau13").style.zIndex = "2";
+            }, 300);
+        }
+        function book13Close() {
+            document.getElementById("book13").style.height = "60px";
+            document.getElementById("book13").style.width = "95%";
+            document.getElementById("book13").style.marginLeft = "2.5%";
+            document.getElementById("book13").style.borderRadius = "0";
+            document.getElementById("maziau13").style.opacity = "0";
+            document.getElementById("maziau13").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau13").style.opacity = "1";
+            }, 300);
+        }
+        function book14Open() {
+            document.getElementById("book14").style.height = "540px";
+            document.getElementById("book14").style.width = "99%";
+            document.getElementById("book14").style.marginLeft = "0.5%";
+            document.getElementById("book14").style.borderRadius = "15px";
+            document.getElementById("daugiau14").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau14").style.opacity = "1";
+                document.getElementById("maziau14").style.zIndex = "2";
+            }, 300);
+        }
+        function book14Close() {
+            document.getElementById("book14").style.height = "60px";
+            document.getElementById("book14").style.width = "95%";
+            document.getElementById("book14").style.marginLeft = "2.5%";
+            document.getElementById("book14").style.borderRadius = "0";
+            document.getElementById("maziau14").style.opacity = "0";
+            document.getElementById("maziau14").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau14").style.opacity = "1";
+            }, 300);
+        }
+        function book15Open() {
+            document.getElementById("book15").style.height = "540px";
+            document.getElementById("book15").style.width = "99%";
+            document.getElementById("book15").style.marginLeft = "0.5%";
+            document.getElementById("book15").style.borderRadius = "15px";
+            document.getElementById("daugiau15").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau15").style.opacity = "1";
+                document.getElementById("maziau15").style.zIndex = "2";
+            }, 300);
+        }
+        function book15Close() {
+            document.getElementById("book15").style.height = "60px";
+            document.getElementById("book15").style.width = "95%";
+            document.getElementById("book15").style.marginLeft = "2.5%";
+            document.getElementById("book15").style.borderRadius = "0";
+            document.getElementById("maziau15").style.opacity = "0";
+            document.getElementById("maziau15").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau15").style.opacity = "1";
+            }, 300);
+        }
+        function book16Open() {
+            document.getElementById("book16").style.height = "540px";
+            document.getElementById("book16").style.width = "99%";
+            document.getElementById("book16").style.marginLeft = "0.5%";
+            document.getElementById("book16").style.borderRadius = "15px";
+            document.getElementById("daugiau16").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau16").style.opacity = "1";
+                document.getElementById("maziau16").style.zIndex = "2";
+            }, 300);
+        }
+        function book16Close() {
+            document.getElementById("book16").style.height = "60px";
+            document.getElementById("book16").style.width = "95%";
+            document.getElementById("book16").style.marginLeft = "2.5%";
+            document.getElementById("book16").style.borderRadius = "0";
+            document.getElementById("maziau16").style.opacity = "0";
+            document.getElementById("maziau16").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau16").style.opacity = "1";
+            }, 300);
+        }
+        function book17Open() {
+            document.getElementById("book17").style.height = "540px";
+            document.getElementById("book17").style.width = "99%";
+            document.getElementById("book17").style.marginLeft = "0.5%";
+            document.getElementById("book17").style.borderRadius = "15px";
+            document.getElementById("daugiau17").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau17").style.opacity = "1";
+                document.getElementById("maziau17").style.zIndex = "2";
+            }, 300);
+        }
+        function book17Close() {
+            document.getElementById("book17").style.height = "60px";
+            document.getElementById("book17").style.width = "95%";
+            document.getElementById("book17").style.marginLeft = "2.5%";
+            document.getElementById("book17").style.borderRadius = "0";
+            document.getElementById("maziau17").style.opacity = "0";
+            document.getElementById("maziau17").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau17").style.opacity = "1";
+            }, 300);
+        }
+        function myFunction() {
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
