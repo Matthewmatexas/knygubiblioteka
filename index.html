@@ -275,7 +275,7 @@
     <img src="bookshelf.jpg" alt="" id="btn2" style="background-color: white; width: 50px; transition: 0.3s; border-radius: 100%; border: 2px solid lightskyblue; padding: 5px; position: fixed; bottom: 60px; right: 10px; z-index: 55; box-shadow: 0 0 15px lightskyblue; " onclick="helpOpen()">
     <div id="search">
         <div style="display: flex; justify-content: center; align-items: center;"><img src="search.png" alt="" style="width: 30px;"><p style="font-size: 13px; text-align: left; padding-left: 5px;">Ieškokite knygų pagal pavadinimą/autorių:</p></div>
-        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="pvz., Raudonkepuraitė..." title="Type in a name" maxlength="50">
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Rašykite čia..." title="Rašykite čia..." maxlength="50">
         <button style="position: absolute; top: 50px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s;" onclick="searchClose()">Uždaryti</button>
     </div>
     <div id="user" onclick="info()"><div style="width: 100%; display: flex; justify-content: center; align-items: center; margin-top: -5px;"><img src="user.jpg" alt="" style="width: 30px;"><p>Kasparavičių šeima</p></div><div style="width: 100%; position: absolute; left: 0; right: 0; top: 49px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 5px; margin-left: 5px;">Viso knygų: ---</p><p style="margin-top: -15px; margin-left: 5px;">Naudotojas nuo: 05/07/2022</p><p style="position: absolute; top: 40px; right: 5px; font-size: 10px;" id="5">Uždaroma po 5s</p><p style="position: absolute; top: 40px; right: 5px; display: none; font-size: 10px;" id="4">Uždaroma po 4s</p><p style="position: absolute; top: 40px; right: 5px; display: none; font-size: 10px;" id="3">Uždaroma po 3s</p><p style="position: absolute; top: 40px; right: 5px; display: none; font-size: 10px;" id="2">Uždaroma po 2s</p><p style="position: absolute; top: 40px; right: 5px; display: none; font-size: 10px;" id="1">Uždaroma po 1s</p><p style="position: absolute; top: 40px; right: 5px; display: none; font-size: 10px;" id="close">Uždaroma...</p></div>
@@ -285,18 +285,29 @@
     <p style="margin-top: -10px; margin-left: 10px;">Rikiavimas: A - Ž <span style="color: slategrey; border-radius: 100%; margin-left: 5px; border: 2px solid slategrey; padding-left: 7px; padding-right: 7px;" onclick="sort()">?</span></p>
 
     <ul id="myUL">
+        <li class="book" id="book47" style="border-radius: 0;"><a href="#" onclick="book47Open()"><span style="font-weight: 800; font-size: 15px;">1000 įdomiausių vaikų klausimų</span> <br> <span style="color: slategrey;">Autoriaus nėra</span></a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau47" onclick="book47Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau47" onclick="book47Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 3 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Vaikams - Gamta ir mokslas</p></div><img src="1000-idomiausiu-vaiku-klausimu.jpg" alt="1000 įdomiausių vaikų klausimų" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book48" style="border-radius: 0;"><a href="#" onclick="book48Open()"><span style="font-weight: 800; font-size: 15px;">1001 klausimas ir atsakymas</span> <br> <span style="color: slategrey;">Autoriaus nėra</span></a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau48" onclick="book48Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau48" onclick="book48Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 3 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Enciklopedijos. Žinynai</p></div><img src="1001-klausimas-ir-atsakymas.jpg" alt="1001 klausimas ir atsakymas" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
         <li class="book" id="book29" style="border-radius: 0;"><a href="#" onclick="book29Open()"><span style="font-weight: 800; font-size: 15px;">Anglų-lietuvių kalbų kasdien...zmų žodynas</span> <br> Martin H. Manser</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau29" onclick="book29Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau29" onclick="book29Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 2 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Žodynai</p></div><img src="anglu-lietuviu-kalbu-kasdien...zmu-zodynas.jpg" alt="Anglų-lietuvių kalbų kasdienių frazeologizmų žodynas" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
         <li class="book" id="book33" style="border-radius: 0;"><a href="#" onclick="book33Open()"><span style="font-weight: 800; font-size: 15px;">Anglų-lietuvių kalbų žodynas 1</span> <br> <span style="color: slategrey;">Autoriaus nėra</span></a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau33" onclick="book33Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau33" onclick="book33Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 2 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Žodynai</p></div><img src="anglu-lietuviu-kalbu-zodynas-1.jpg" alt="Anglų-lietuvių kalbų žodynas 1" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
         <li class="book" id="book32" style="border-radius: 0;"><a href="#" onclick="book32Open()"><span style="font-weight: 800; font-size: 15px;">Anglų-lietuvių kalbų žodynas 2</span> <br> <span style="color: slategrey;">Autoriaus nėra</span></a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau32" onclick="book32Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau32" onclick="book32Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 2 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Žodynai</p></div><img src="anglu-lietuviu-kalbu-zodynas-2.jpg" alt="Anglų-lietuvių kalbų žodynas 2" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book44" style="border-radius: 0;"><a href="#" onclick="book44Open()"><span style="font-weight: 800; font-size: 15px;">Anglų-lietuvių lietuvių-anglų kalbų žodynas</span> <br> <span style="color: slategrey;">Autoriaus nėra</span></a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau44" onclick="book44Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau44" onclick="book44Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 3 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Žodynai</p></div><img src="anglu-lietuviu-lietuviu-anglu-kalbu-zodynas.jpg" alt="Anglų-lietuvių lietuvių-anglų kalbų žodynas" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book46" style="border-radius: 0;"><a href="#" onclick="book46Open()"><span style="font-weight: 800; font-size: 15px;">Arkliai</span> <br> Žvilgsnis į pasaulį</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau46" onclick="book46Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau46" onclick="book46Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 3 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Istorija</p></div><img src="arkliai.jpg" alt="Arkliai" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
         <li class="book" id="book12" style="border-radius: 0;"><a href="#" onclick="book12Open()"><span style="font-weight: 800; font-size: 15px;">Atradimai ir išradimai, kurie pakeitė pasaulį</span> <br> Lietuvos Rytas</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau12" onclick="book12Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau12" onclick="book12Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Enciklopedijos. Žinynai</p></div><img src="atradimai-ir-isradimai-kurie-pakeite-pasauli.jpg" alt="Atradimai ir išradimai, kurie pakeitė pasaulį" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book42" style="border-radius: 0;"><a href="#" onclick="book42Open()"><span style="font-weight: 800; font-size: 15px;">Business studies Basic facts</span> <br> Collins Gem</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau42" onclick="book42Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau42" onclick="book42Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 3 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Mokomosios knygos studentams</p></div><img src="business-studies-basic-facts.jpg" alt="Business studies Basic facts" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
         <li class="book" id="book11" style="border-radius: 0;"><a href="#" onclick="book11Open()"><span style="font-weight: 800; font-size: 15px;">Buvom Esam Būsim</span> <br> Lietuvos Rytas</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau11" onclick="book11Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau11" onclick="book11Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Istorija</p></div><img src="buvom-esam-busim.jpg" alt="Buvom Esam Būsim" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book41" style="border-radius: 0;"><a href="#" onclick="boo41Open()"><span style="font-weight: 800; font-size: 15px;">Dabartinės anglų kalbos žodynas</span> <br> Bronislovas Piesarskas</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau41" onclick="book41Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau41" onclick="book41Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 3 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Žodynai</p></div><img src="dabartines-anglu-kalbos-zodynas.jpg" alt="Dabartinės anglų kalbos žodynas" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
         <li class="book" id="book9" style="border-radius: 0;"><a href="#" onclick="book9Open()"><span style="font-weight: 800; font-size: 15px;">Daina Lietuvai</span> <br> Antanas Sutkus</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau9" onclick="book9Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau9" onclick="book9Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Biografija,  atsiminimai</p></div><img src="daina-lietuvai.jpg" alt="Daina Lietuvai" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book45" style="border-radius: 0;"><a href="#" onclick="book45Open()"><span style="font-weight: 800; font-size: 15px;">Dictionary of contemporary English</span> <br> Longman</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau45" onclick="book45Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau45" onclick="book45Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 3 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Žodynai</p></div><img src="dictionary-of-contemporary-english.jpg" alt="Dictionary of contemporary English" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
         <li class="book" id="book14" style="border-radius: 0;"><a href="#" onclick="book14Open()"><span style="font-weight: 800; font-size: 15px;">Didieji pasaulio stebuklai</span> <br> Reader's Digest</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau14" onclick="book14Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau14" onclick="book14Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Istorija</p></div><img src="didieji-pasaulio-stebuklai.jpg" alt="Didieji pasaulio stebuklai" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book39" style="border-radius: 0;"><a href="#" onclick="book39Open()"><span style="font-weight: 800; font-size: 15px;">Didysis anglų-lietuių kalbų žodynas</span> <br> Bronislovas Piesarskas</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau39" onclick="book39Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau39" onclick="book39Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 3 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Žodynai</p></div><img src="didysis-anglu-lietuviu-kalbu-zodynas.jpg" alt="Didysis anglų-lietuvių kalbų žodynas" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
         <li class="book" id="book4" style="border-radius: 0;"><a href="#" onclick="book4Open()"><span style="font-weight: 800; font-size: 15px;">Didysis sapnininkas</span> <br> J. Banevičius</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau4" onclick="book4Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau4" onclick="book4Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Ezoterika. Magija. Mistika</p></div><img src="didysis-sapnininkas.jpg" alt="Didysis Sapnininkas" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
         <li class="book" id="book20" style="border-radius: 0;"><a href="#" onclick="book20Open()"><span style="font-weight: 800; font-size: 15px;">Do you speak English?</span> <br> B. i R. Retman</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau20" onclick="book20Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau20" onclick="book20Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 2 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Kalbų mokymasis</p></div><img src="do-you-speak-english.jpg" alt="Do you speak English?" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
         <li class="book" id="book3" style="border-radius: 0;"><a href="#" onclick="book3Open()"><span style="font-weight: 800; font-size: 15px;">Gyvenimas po mirties ir pasaulis anapus</span> <br> Jenny Randelis ir Peter Hough</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau3" onclick="book3Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau3" onclick="book3Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Religija ir teologija</p></div><img src="gyvenimas-po-mirties-ir-pasaulis-anapus.jpg" alt="Gyvenimas po mirties ir pasaulis anapus" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
         <li class="book" id="book17" style="border-radius: 0;"><a href="#" onclick="book17Open()"><span style="font-weight: 800; font-size: 15px;">Gyvoji gamta</span> <br> Pažinimo džiaugsmas</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau17" onclick="book17Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau17" onclick="book17Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Gamta ir mokslas</p></div><img src="gyvoji-gamta.jpg" alt="Gyvoji gamta" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book40" style="border-radius: 0;"><a href="#" onclick="book40Open()"><span style="font-weight: 800; font-size: 15px;">Intensyvus anglų kalbos pagrind...sis kursas</span> <br> R. Aprijaskytė</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau40" onclick="book40Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau40" onclick="book40Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 3 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Kalbų mokymasis</p></div><img src="intensyvus-anglu-kalbos-pagrind...sis-kursas.jpg" alt="Intensyvus anglų kalbos pagrindinių žinių kartojamasis kursas" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book38" style="border-radius: 0;"><a href="#" onclick="book38Open()"><span style="font-weight: 800; font-size: 15px;">Ką turi žinoti</span> <br> <span style="color: slategrey;">Autoriaus nėra</span></a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau38" onclick="book38Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau38" onclick="book38Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 3 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Enciklopedijos. Žinynai</p></div><img src="ka-turi-zinoti.jpg" alt="Ką turi žinoti" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
         <li class="book" id="book22" style="border-radius: 0;"><a href="#" onclick="book22Open()"><span style="font-weight: 800; font-size: 15px;">Lenkiški-lietuviški pasikalbėjimai</span> <br> Barbara Kalėda</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau22" onclick="book22Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau22" onclick="book22Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 2 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Kalbų mokymasis</p></div><img src="lenkiski-lietuviski-pasikalbejimai.jpg" alt="Lenkiški-lietuviški pasikalbėjimai" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book43" style="border-radius: 0;"><a href="#" onclick="book43Open()"><span style="font-weight: 800; font-size: 15px;">Lietuviški-angliški pasikalbėjimai</span> <br> Bronius Svecevičius</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau43" onclick="book43Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau43" onclick="book43Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 3 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Kalbų mokymasis</p></div><img src="lietuviski-angliski-pasikalbejimai.jpg" alt="Lietuviški-angliški pasikalbėjimai" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
         <li class="book" id="book18" style="border-radius: 0;"><a href="#" onclick="book18Open()"><span style="font-weight: 800; font-size: 15px;">Lietuviški-angliški pasikalbėjimai turistams</span> <br> B. Svecevičius</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau18" onclick="book18Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau18" onclick="book18Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 2 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Kalbų mokymasis</p></div><img src="lietuviski-angliski-pasikalbejimai-turistams.jpg" alt="Lietuviški-angliški pasikalbėjimai turistams" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
         <li class="book" id="book30" style="border-radius: 0;"><a href="#" onclick="book30Open()"><span style="font-weight: 800; font-size: 15px;">Lietuvių-anglų kalbų žodynas (pilkas)</span> <br> <span style="color: slategrey;">Autoriaus nėra</span></a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau30" onclick="book30Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau30" onclick="book30Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 2 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Žodynai</p></div><img src="lietuviu-anglu-kalbu-zodynas-(pilkas).jpg" alt="Lietuvių-anglų kalbų žodynas (pilkas)" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
         <li class="book" id="book31" style="border-radius: 0;"><a href="#" onclick="book31Open()"><span style="font-weight: 800; font-size: 15px;">Lietuvių-anglų kalbų žodynas (rudas)</span> <br> <span style="color: slategrey;">Autoriaus nėra</span></a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau31" onclick="book31Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau31" onclick="book31Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 2 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Žodynai</p></div><img src="lietuviu-anglu-kalbu-zodynas-(rudas).jpg" alt="Lietuvių-anglų kalbų žodynas (rudas)" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
@@ -308,6 +319,7 @@
         <li class="book" id="book7" style="border-radius: 0;"><a href="#" onclick="book7Open()"><span style="font-weight: 800; font-size: 15px;">Pajusk Lietuvą</span> <br> Lietuvos Rytas</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau7" onclick="book7Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau7" onclick="book7Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Kelionės. Laisvalaikis. Sportas</p></div><img src="pajusk-lietuva.jpg" alt="Pajusk Lietuvą" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
         <li class="book" id="book5" style="border-radius: 0;"><a href="#" onclick="book5Open()"><span style="font-weight: 800; font-size: 15px;">Pasaulio garsenybės</span> <br> Oxford University Press</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau5" onclick="book5Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau5" onclick="book5Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Enciklopedijos. Žinynai</p></div><img src="pasaulio-garsenybes.jpg" alt="Pasaulio garsenybės" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
         <li class="book" id="book15" style="border-radius: 0;"><a href="#" onclick="book15Open()"><span style="font-weight: 800; font-size: 15px;">Pasaulio geografija</span> <br> <span style="color: slategrey;">Autoriaus nėra</span></a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau15" onclick="book15Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau15" onclick="book15Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Enciklopedijos. Žinynai</p></div><img src="pasaulio-geografija.jpg" alt="Pasaulio geografija" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book49" style="border-radius: 0;"><a href="#" onclick="book49Open()"><span style="font-weight: 800; font-size: 15px;">Prahue city on the Vltava</span> <br> <span style="color: slategrey;">Autoriaus nėra</span></a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau49" onclick="book49Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau49" onclick="book49Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 3 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Kelionės. Laivalaikis. Sportas</p></div><img src="prahue-city-on-the-vltava.jpg" alt="Prahue city on the Vltava" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
         <li class="book" id="book19" style="border-radius: 0;"><a href="#" onclick="book19Open()"><span style="font-weight: 800; font-size: 15px;">Rusiškų-lietuviškų pasikalbėjimų knygelė</span> <br> V. Stašaitienė</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau19" onclick="book19Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau19" onclick="book19Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 2 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Kalbų mokymasis</p></div><img src="rusisku-lietuvisku-pasikalbejimu-knygele.jpg" alt="Rusiškų-lietuviškų pasikalbėjimų knygelė" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
         <li class="book" id="book35" style="border-radius: 0;"><a href="#" onclick="book35Open()"><span style="font-weight: 800; font-size: 15px;">Rusų lietuvių kalbų žodynas I</span> <br> <span style="color: slategrey;">Autoriaus nėra</span></a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau35" onclick="book35Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau35" onclick="book35Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 2 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Žodynai</p></div><img src="rusu-lietuviu-kalbu-zodynas-i.jpg" alt="Rusų lietuvių kalbų žodynas I" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
         <li class="book" id="book36" style="border-radius: 0;"><a href="#" onclick="book36Open()"><span style="font-weight: 800; font-size: 15px;">Rusų lietuvių kalbų žodynas II</span> <br> <span style="color: slategrey;">Autoriaus nėra</span></a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau36" onclick="book36Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau36" onclick="book36Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 2 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Žodynai</p></div><img src="rusu-lietuviu-kalbu-zodynas-ii.jpg" alt="Rusų lietuvių kalbų žodynas II" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
@@ -316,6 +328,7 @@
         <li class="book" id="book6" style="border-radius: 0;"><a href="#" onclick="book6Open()"><span style="font-weight: 800; font-size: 15px;">Šalis ta Lietuva...</span> <br> Lietuvos Rytas</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau6" onclick="book6Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau6" onclick="book6Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Istorija</p></div><img src="salis-ta-lietuva.jpg" alt="Šalis ta Lietuva..." style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
         <li class="book" id="book8" style="border-radius: 0;"><a href="#" onclick="book8Open()"><span style="font-weight: 800; font-size: 15px;">Šventosios vietos</span> <br> James Harpur</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau8" onclick="book8Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau8" onclick="book8Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 1 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Kelionės. Laisvalaikis. Sportas</p></div><img src="sventosios-vietos.jpg" alt="Šventosios vietos" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
         <li class="book" id="book34" style="border-radius: 0;"><a href="#" onclick="book34Open()"><span style="font-weight: 800; font-size: 15px;">Tarptautinių žodžių žodynas</span> <br> <span style="color: slategrey;">Autoriaus nėra</span></a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau34" onclick="book34Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau34" onclick="book34Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 2 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Žodynai</p></div><img src="tarptautiniu-zodziu-zodynas.jpg" alt="Tarptautinių žodžių žodynas" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
+        <li class="book" id="book37" style="border-radius: 0;"><a href="#" onclick="book37Open()"><span style="font-weight: 800; font-size: 15px;">Universalus žinynas</span> <br> <span style="color: slategrey;">Autoriaus nėra</span></a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau37" onclick="book37Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau37" onclick="book37Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 3 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Enciklopedijos. Žinynai</p></div><img src="universalus-zinynas.jpg" alt="Universalus žinynas" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
         <li class="book" id="book25" style="border-radius: 0;"><a href="#" onclick="book25Open()"><span style="font-weight: 800; font-size: 15px;">Vokiečių kalbos praktinė gramatika</span> <br> Irena Marija Norkaitienė</a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau25" onclick="book25Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau25" onclick="book25Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 2 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Kalbų mokymasis</p></div><img src="vokieciu-kalbos-praktine-gramatika.jpg" alt="Vokiečių kalbos praktinė gramatika" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
         <li class="book" id="book28" style="border-radius: 0;"><a href="#" onclick="book28Open()"><span style="font-weight: 800; font-size: 15px;">Vokiečių-lietuvių kalbų žodynas 1</span> <br> <span style="color: slategrey;">Autoriaus nėra</span></a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau28" onclick="book28Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau28" onclick="book28Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 2 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Žodynai</p></div><img src="vokieciu-lietuviu-kalbu-zodynas-1.jpg" alt="Vokiečių-lietuvių kalbų žodynas 1" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
         <li class="book" id="book27" style="border-radius: 0;"><a href="#" onclick="book27Open()"><span style="font-weight: 800; font-size: 15px;">Vokiečių-lietuvių kalbų žodynas 2</span> <br> <span style="color: slategrey;">Autoriaus nėra</span></a><button style="position: absolute; top: 20px; right: 3px; border-radius: 13px; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; z-index: 1; box-shadow: 0 0 25px white;" id="daugiau27" onclick="book27Open()">Daugiau</button><button style="position: absolute; bottom: 3px; right: 3px; border-radius: 13px; opacity: 0; border: 2px solid lightskyblue; background-color: white; height: 33px; transition: 0.3s; box-shadow: 0 0 25px white;" id="maziau27" onclick="book27Close()">Mažiau</button><div style="width: 100%; position: absolute; left: 0; right: 0; top: 56px; border-top: 2px solid lightskyblue"></div><p style="margin-top: 10px; margin-left: 0;">Vieta: 1 stulpelis, 2 eilė</p><p style="margin-top: -10px; margin-left: 0;">Kategorija: Žodynai</p></div><img src="vokieciu-lietuviu-kalbu-zodynas-2.jpg" alt="Vokiečių-lietuvių kalbų žodynas 2" style="height: 390px; display: block; margin: 0 auto; margin-top: -10px; border-radius: 15px;"></li>
@@ -1202,6 +1215,292 @@
             document.getElementById("maziau36").style.zIndex = "0";
             setTimeout(() => {
                 document.getElementById("daugiau36").style.opacity = "1";
+            }, 300);
+        }
+        function book37Open() {
+            document.getElementById("book37").style.height = "540px";
+            document.getElementById("book37").style.width = "99%";
+            document.getElementById("book37").style.marginLeft = "0.5%";
+            document.getElementById("book37").style.borderRadius = "15px";
+            document.getElementById("daugiau37").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau37").style.opacity = "1";
+                document.getElementById("maziau37").style.zIndex = "2";
+            }, 300);
+        }
+        function book37Close() {
+            document.getElementById("book37").style.height = "60px";
+            document.getElementById("book37").style.width = "95%";
+            document.getElementById("book37").style.marginLeft = "2.5%";
+            document.getElementById("book37").style.borderRadius = "0";
+            document.getElementById("maziau37").style.opacity = "0";
+            document.getElementById("maziau37").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau37").style.opacity = "1";
+            }, 300);
+        }
+        function book38Open() {
+            document.getElementById("book38").style.height = "540px";
+            document.getElementById("book38").style.width = "99%";
+            document.getElementById("book38").style.marginLeft = "0.5%";
+            document.getElementById("book38").style.borderRadius = "15px";
+            document.getElementById("daugiau38").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau38").style.opacity = "1";
+                document.getElementById("maziau38").style.zIndex = "2";
+            }, 300);
+        }
+        function book38Close() {
+            document.getElementById("book38").style.height = "60px";
+            document.getElementById("book38").style.width = "95%";
+            document.getElementById("book38").style.marginLeft = "2.5%";
+            document.getElementById("book38").style.borderRadius = "0";
+            document.getElementById("maziau38").style.opacity = "0";
+            document.getElementById("maziau38").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau38").style.opacity = "1";
+            }, 300);
+        }
+        function book39Open() {
+            document.getElementById("book39").style.height = "540px";
+            document.getElementById("book39").style.width = "99%";
+            document.getElementById("book39").style.marginLeft = "0.5%";
+            document.getElementById("book39").style.borderRadius = "15px";
+            document.getElementById("daugiau39").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau39").style.opacity = "1";
+                document.getElementById("maziau39").style.zIndex = "2";
+            }, 300);
+        }
+        function book39Close() {
+            document.getElementById("book39").style.height = "60px";
+            document.getElementById("book39").style.width = "95%";
+            document.getElementById("book39").style.marginLeft = "2.5%";
+            document.getElementById("book39").style.borderRadius = "0";
+            document.getElementById("maziau39").style.opacity = "0";
+            document.getElementById("maziau39").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau39").style.opacity = "1";
+            }, 300);
+        }
+        function book40Open() {
+            document.getElementById("book40").style.height = "540px";
+            document.getElementById("book40").style.width = "99%";
+            document.getElementById("book40").style.marginLeft = "0.5%";
+            document.getElementById("book40").style.borderRadius = "15px";
+            document.getElementById("daugiau40").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau40").style.opacity = "1";
+                document.getElementById("maziau40").style.zIndex = "2";
+            }, 300);
+        }
+        function book40Close() {
+            document.getElementById("book40").style.height = "60px";
+            document.getElementById("book40").style.width = "95%";
+            document.getElementById("book40").style.marginLeft = "2.5%";
+            document.getElementById("book40").style.borderRadius = "0";
+            document.getElementById("maziau40").style.opacity = "0";
+            document.getElementById("maziau40").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau40").style.opacity = "1";
+            }, 300);
+        }
+        function book41Open() {
+            document.getElementById("book41").style.height = "540px";
+            document.getElementById("book41").style.width = "99%";
+            document.getElementById("book41").style.marginLeft = "0.5%";
+            document.getElementById("book41").style.borderRadius = "15px";
+            document.getElementById("daugiau41").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau41").style.opacity = "1";
+                document.getElementById("maziau41").style.zIndex = "2";
+            }, 300);
+        }
+        function book41Close() {
+            document.getElementById("book41").style.height = "60px";
+            document.getElementById("book41").style.width = "95%";
+            document.getElementById("book41").style.marginLeft = "2.5%";
+            document.getElementById("book41").style.borderRadius = "0";
+            document.getElementById("maziau41").style.opacity = "0";
+            document.getElementById("maziau41").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau41").style.opacity = "1";
+            }, 300);
+        }
+        function book42Open() {
+            document.getElementById("book42").style.height = "540px";
+            document.getElementById("book42").style.width = "99%";
+            document.getElementById("book42").style.marginLeft = "0.5%";
+            document.getElementById("book42").style.borderRadius = "15px";
+            document.getElementById("daugiau42").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau42").style.opacity = "1";
+                document.getElementById("maziau42").style.zIndex = "2";
+            }, 300);
+        }
+        function book42Close() {
+            document.getElementById("book42").style.height = "60px";
+            document.getElementById("book42").style.width = "95%";
+            document.getElementById("book42").style.marginLeft = "2.5%";
+            document.getElementById("book42").style.borderRadius = "0";
+            document.getElementById("maziau42").style.opacity = "0";
+            document.getElementById("maziau42").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau42").style.opacity = "1";
+            }, 300);
+        }
+        function book43Open() {
+            document.getElementById("book43").style.height = "540px";
+            document.getElementById("book43").style.width = "99%";
+            document.getElementById("book43").style.marginLeft = "0.5%";
+            document.getElementById("book43").style.borderRadius = "15px";
+            document.getElementById("daugiau43").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau43").style.opacity = "1";
+                document.getElementById("maziau43").style.zIndex = "2";
+            }, 300);
+        }
+        function book43Close() {
+            document.getElementById("book43").style.height = "60px";
+            document.getElementById("book43").style.width = "95%";
+            document.getElementById("book43").style.marginLeft = "2.5%";
+            document.getElementById("book43").style.borderRadius = "0";
+            document.getElementById("maziau43").style.opacity = "0";
+            document.getElementById("maziau43").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau43").style.opacity = "1";
+            }, 300);
+        }
+        function book44Open() {
+            document.getElementById("book44").style.height = "540px";
+            document.getElementById("book44").style.width = "99%";
+            document.getElementById("book44").style.marginLeft = "0.5%";
+            document.getElementById("book44").style.borderRadius = "15px";
+            document.getElementById("daugiau44").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau44").style.opacity = "1";
+                document.getElementById("maziau44").style.zIndex = "2";
+            }, 300);
+        }
+        function book44Close() {
+            document.getElementById("book44").style.height = "60px";
+            document.getElementById("book44").style.width = "95%";
+            document.getElementById("book44").style.marginLeft = "2.5%";
+            document.getElementById("book44").style.borderRadius = "0";
+            document.getElementById("maziau44").style.opacity = "0";
+            document.getElementById("maziau44").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau44").style.opacity = "1";
+            }, 300);
+        }
+        function book45Open() {
+            document.getElementById("book45").style.height = "540px";
+            document.getElementById("book45").style.width = "99%";
+            document.getElementById("book45").style.marginLeft = "0.5%";
+            document.getElementById("book45").style.borderRadius = "15px";
+            document.getElementById("daugiau45").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau45").style.opacity = "1";
+                document.getElementById("maziau45").style.zIndex = "2";
+            }, 300);
+        }
+        function book45Close() {
+            document.getElementById("book45").style.height = "60px";
+            document.getElementById("book45").style.width = "95%";
+            document.getElementById("book45").style.marginLeft = "2.5%";
+            document.getElementById("book45").style.borderRadius = "0";
+            document.getElementById("maziau45").style.opacity = "0";
+            document.getElementById("maziau45").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau45").style.opacity = "1";
+            }, 300);
+        }
+        function book46Open() {
+            document.getElementById("book46").style.height = "540px";
+            document.getElementById("book46").style.width = "99%";
+            document.getElementById("book46").style.marginLeft = "0.5%";
+            document.getElementById("book46").style.borderRadius = "15px";
+            document.getElementById("daugiau46").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau46").style.opacity = "1";
+                document.getElementById("maziau46").style.zIndex = "2";
+            }, 300);
+        }
+        function book46Close() {
+            document.getElementById("book46").style.height = "60px";
+            document.getElementById("book46").style.width = "95%";
+            document.getElementById("book46").style.marginLeft = "2.5%";
+            document.getElementById("book46").style.borderRadius = "0";
+            document.getElementById("maziau46").style.opacity = "0";
+            document.getElementById("maziau46").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau46").style.opacity = "1";
+            }, 300);
+        }
+        function book47Open() {
+            document.getElementById("book47").style.height = "540px";
+            document.getElementById("book47").style.width = "99%";
+            document.getElementById("book47").style.marginLeft = "0.5%";
+            document.getElementById("book47").style.borderRadius = "15px";
+            document.getElementById("daugiau47").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau47").style.opacity = "1";
+                document.getElementById("maziau47").style.zIndex = "2";
+            }, 300);
+        }
+        function book47Close() {
+            document.getElementById("book47").style.height = "60px";
+            document.getElementById("book47").style.width = "95%";
+            document.getElementById("book47").style.marginLeft = "2.5%";
+            document.getElementById("book47").style.borderRadius = "0";
+            document.getElementById("maziau47").style.opacity = "0";
+            document.getElementById("maziau47").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau47").style.opacity = "1";
+            }, 300);
+        }
+        function book48Open() {
+            document.getElementById("book48").style.height = "540px";
+            document.getElementById("book48").style.width = "99%";
+            document.getElementById("book48").style.marginLeft = "0.5%";
+            document.getElementById("book48").style.borderRadius = "15px";
+            document.getElementById("daugiau48").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau48").style.opacity = "1";
+                document.getElementById("maziau48").style.zIndex = "2";
+            }, 300);
+        }
+        function book48Close() {
+            document.getElementById("book48").style.height = "60px";
+            document.getElementById("book48").style.width = "95%";
+            document.getElementById("book48").style.marginLeft = "2.5%";
+            document.getElementById("book48").style.borderRadius = "0";
+            document.getElementById("maziau48").style.opacity = "0";
+            document.getElementById("maziau48").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau48").style.opacity = "1";
+            }, 300);
+        }
+        function book49Open() {
+            document.getElementById("book49").style.height = "540px";
+            document.getElementById("book49").style.width = "99%";
+            document.getElementById("book49").style.marginLeft = "0.5%";
+            document.getElementById("book49").style.borderRadius = "15px";
+            document.getElementById("daugiau49").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("maziau49").style.opacity = "1";
+                document.getElementById("maziau49").style.zIndex = "2";
+            }, 300);
+        }
+        function book49Close() {
+            document.getElementById("book49").style.height = "60px";
+            document.getElementById("book49").style.width = "95%";
+            document.getElementById("book49").style.marginLeft = "2.5%";
+            document.getElementById("book49").style.borderRadius = "0";
+            document.getElementById("maziau49").style.opacity = "0";
+            document.getElementById("maziau49").style.zIndex = "0";
+            setTimeout(() => {
+                document.getElementById("daugiau49").style.opacity = "1";
             }, 300);
         }
         function myFunction() {
